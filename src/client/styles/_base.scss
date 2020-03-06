@@ -5,8 +5,8 @@ body {
     font-size: 16px;
     line-height: 25px;
     font-family: 'Work Sans', sans-serif;
-    color: #333333;
-    background-color: #f2f2f2;
+    color: $base-font-colour;
+    background-color: $base-background-colour;
 }
 
 h1 {
@@ -15,6 +15,10 @@ h1 {
 }
 
 h2 {
+  font-size: 1.4em;
+}
+
+h3 {
   font-size: 1.2em;
 }
 

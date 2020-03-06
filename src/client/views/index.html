@@ -25,9 +25,28 @@
                       <input type="text" id="url-input" name="url-input" value="" placeholder="Enter URL" autofocus="autofocus" onblur="return Client.onUrlBlur()" onchange="return Client.onUrlChange()">
                       <input disabled type="submit" id="url-submit" name="url-submit" value="Analyse" onclick="return Client.handleUrlSubmit(event)" onsubmit="return Client.handleUrlSubmit(event)">
                 </form>
-                <div class="results-container">
-                    <div class="title">
+                <div id="loading-spinner" class="lds-ring hidden"><div></div><div></div><div></div><div></div></div>
+                <div id="results-component" class="results-container hidden">
+                    <div class="results-title">
                         <h2>Results</h2>
+                    </div>
+                    <div class="results-item">
+                        <h3 class="results-subtitle">Summary</h3>
+                        <p id="summary-data"></p>
+                    </div>
+                    <div class="results-item">
+                      <h3 class="results-subtitle">Category</h3>
+                      <p id="classification-data"></p>
+                    </div>
+                    <div class="results-item">
+                      <h3 class="results-subtitle">Sentiment</h3>
+                      <p id="polarity-data"></p>
+                      <p id="subjectivity-data"></p>
+                    </div>
+                    <div class="results-item">
+                      <h3 class="results-subtitle">Suggested Hashtags</h3>
+                      <ul id="hashtag-list">
+                      </ul>
                     </div>
                 </div>
               </div>

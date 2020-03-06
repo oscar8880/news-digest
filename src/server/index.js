@@ -54,25 +54,52 @@ app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
 })
 
-app.get('/url', function (req, res) {
-  console.log(req.query.url);
-  const urlToAnalyse = req.query.url;
-  // textapi.sentiment({
-  //   'url': urlToAnalyse
-  // }, function(error, response) {
-  //   if (error === null) {
-  //     console.log(response);
-  //     res.send(response);
-  //   } else {
-  //     console.log(error);
-  //   }
-  // });
-  // Example response for testing
-  res.send({ 
-    polarity: 'neutral',
-    subjectivity: 'subjective',
-    text: 'Hello',
-    polarity_confidence: 0.6483058333396912,
-    subjectivity_confidence: 1 
+app.get('/url', async function (req, res) {
+  const resultsToSend = {};
+
+  textapi.summarize({
+    'url': req.query.url,
+    'sentences_number' : 1
+  }, function(error, response) {
+    if(error === null) {
+      // Extract summary from response and clean
+      const summaryString = response.sentences[0];
+      const cleanSummary = summaryString.replace(/(\r\n|\n|\r)/gm, " ");
+      resultsToSend.summary = cleanSummary;
+    } else {
+      console.log(error);
+    }
   })
+
+  textapi.combined({
+    'url': req.query.url,
+    'endpoint': ['classify', 'hashtags', 'sentiment']
+    }, function(error, response) {
+    if (error === null) {
+      response.results.forEach(result => {
+        console.log(result);
+      })
+      // Extract classification
+      if(response.results[0].result.categories[0] !== undefined) {
+        const classification = response.results[0].result.categories[0].label;
+        resultsToSend.classification = classification;
+      } else {
+        resultsToSend.classification = 'Undetermined';
+      }
+
+      // Extract hastags
+      const hashtags = response.results[1].result.hashtags.slice(0, 5);
+      console.log(hashtags);
+      resultsToSend.hashtags = hashtags;
+
+      // Extract sentiment
+      resultsToSend.polarity = response.results[2].result.polarity;
+      resultsToSend.subjectivity = response.results[2].result.subjectivity;
+
+      // Send payload
+      res.send(resultsToSend);
+    } else {
+      console.log(error);
+    }
+    })
 })
