@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 25px;
+    font-family: 'Work Sans', sans-serif;
+    color: #333333;
+    background-color: #f2f2f2;
+}
+
+h1 {
+  font-size: 1.8em;
+  line-height: 120px;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
+main {
+    flex: 2;
+}
+
+section {
+    max-width: 700px;
+    margin: 25px auto;
+    display: block;
+}
+
+.content {
+  margin: 25px auto;
+  text-align: center;
+  background-color: $element-background-colour;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(14, 13, 13, 0.072);
+}

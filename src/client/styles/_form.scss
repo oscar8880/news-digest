@@ -1,0 +1,83 @@
+form {
+    padding: 50px 10px 25px 10px;
+    background-color: white;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+input[type=text] {
+    display: block;
+    margin: 0 auto 25px auto;
+    padding: 5px 10px;
+    width: 60%;
+    max-width: 400px;
+    height: 37px;
+    font-size: 0.8em;
+    background-color: $base-background-colour;
+    border: none;
+    border-radius: 4px;
+
+    &.error {
+      border: 1px solid red;
+    }
+}
+
+input[type=button], input[type=reset], input[type=submit] {
+  display: block;
+  margin: 25px auto;
+  padding: 5px 20px;
+  width: 40%;
+  max-width: 200px;
+  height: 37px;
+  font-size: 0.8em;
+  text-decoration: none;
+  font-size: 1em;
+  color: white;
+  background-color: $secondary-colour;
+  border: none;
+  border-radius: 4px;
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: normal;
+  }
+}
+
+.options-bar {
+  background-color: $base-background-colour;
+  display: flex;
+  flex-direction: row;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.option-tab {
+  width: 50%;
+  padding: 10px;
+  text-transform: capitalize;
+  text-align: center;
+  background-color: $base-background-colour;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-size: 1.2em;
+  color: #808080;
+
+  &:hover {
+    background-color: #ebebeb;
+  }
+
+  &.active-tab {
+    color: $base-font-colour;
+    background-color: $element-background-colour;
+  }
+
+  &:not(.active-tab) {
+    cursor: pointer;
+  }
+}
+
+.error-span {
+  font-size: 0.8em;
+  color: red;
+}

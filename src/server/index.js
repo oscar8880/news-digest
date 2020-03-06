@@ -1,37 +1,78 @@
-var path = require('path')
-const express = require('express')
-const mockAPIResponse = require('./mockAPI.js')
-var bodyParser = require('body-parser')
-var cors = require('cors')
+const dotenv = require('dotenv');
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const aylien = require("aylien_textapi");
 
-var json = {
-    'title': 'test json response',
-    'message': 'this is a message',
-    'time': 'now'
-}
+/*
+*
+  Initialisation
+*
+*/
 
+// Load environment variables
+dotenv.config({path:__dirname+'/../../.env'});
+
+// Create express server
 const app = express()
-app.use(cors())
-// to use json
-app.use(bodyParser.json())
-// to use url encoded values
+
+// Point server to site folder
+app.use(express.static('dist'))
+
+// Use middleware and dependencies
+app.use(cors());
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }))
 
-app.use(express.static('dist'))
+console.log("ID is: " + process.env.API_ID);
+console.log("Key is: " + process.env.API_KEY);
 
-console.log(JSON.stringify(mockAPIResponse))
+// Start server
+app.listen(8081, function () {
+  console.log('Server listening on port 8081')
+})
+
+
+// API_ID="2e2222e3";
+// API_KEY="0406bba6fce9f93946aeb4eca5b9e454";
+
+// Set aylien API credentials
+var textapi = new aylien({
+  application_id: "2e2222e3",
+  application_key: "0406bba6fce9f93946aeb4eca5b9e454"
+});
+
+/*
+*
+  Routes
+*
+*/
 
 app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
 })
 
-app.get('/test', function (req, res) {
-    res.json(mockAPIResponse);
-})
-
-// designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
-    console.log('Example app listening on port 8081!')
+app.get('/url', function (req, res) {
+  console.log(req.query.url);
+  const urlToAnalyse = req.query.url;
+  // textapi.sentiment({
+  //   'url': urlToAnalyse
+  // }, function(error, response) {
+  //   if (error === null) {
+  //     console.log(response);
+  //     res.send(response);
+  //   } else {
+  //     console.log(error);
+  //   }
+  // });
+  // Example response for testing
+  res.send({ 
+    polarity: 'neutral',
+    subjectivity: 'subjective',
+    text: 'Hello',
+    polarity_confidence: 0.6483058333396912,
+    subjectivity_confidence: 1 
+  })
 })
