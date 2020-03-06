@@ -4,6 +4,10 @@ form {
     text-align: center;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+
+    &.hidden {
+      display: none;
+    }
   }
 
 input[type=text] {
@@ -21,6 +25,18 @@ input[type=text] {
     &.error {
       border: 1px solid red;
     }
+}
+
+textarea {
+  padding: 5px 10px;
+  width: 60%;
+  height: 80px;
+  max-width: 400px;
+  font-size: 0.8em;
+  background-color: $base-background-colour;
+  border: none;
+  border-radius: 4px;
+  resize: none;
 }
 
 input[type=button], input[type=reset], input[type=submit] {
