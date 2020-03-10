@@ -1,4 +1,4 @@
-import { toggleLoading, showResults, buildResults } from './utilities'
+import { toggleLoading, showResults, buildResults, fetchWithTimeout } from './utilities'
 
 function handleUrlSubmit(event) {
 
@@ -15,7 +15,8 @@ function handleUrlSubmit(event) {
 
   // Fetch results from the express server
   console.log("::: Form Submitted :::")
-  fetch(`http://localhost:8081/url?url=${encodedURL}`)
+  //fetch(`http://localhost:8081/url?url=${encodedURL}`)
+  fetchWithTimeout(`http://localhost:8081/url?url=${encodedURL}`, {}, 5000, ()=>console.log('Timed out'))
   .then(res => {
       return res.json()
   })

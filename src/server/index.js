@@ -54,6 +54,7 @@ app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
 })
 
+/* ------ TEST API CALL ------ */
 // textapi.sentiment({
 //   'text': 'John is a very good football player!'
 // }, function(error, response, rateLimits) {
@@ -102,7 +103,6 @@ app.get('/text', function (req, res) {
 
       // Extract hastags
       const hashtags = response.results[1].result.hashtags.slice(0, 5);
-      console.log(hashtags);
       resultsToSend.hashtags = hashtags;
 
       // Extract sentiment
@@ -153,7 +153,6 @@ app.get('/url', function (req, res) {
 
       // Extract hastags
       const hashtags = response.results[1].result.hashtags.slice(0, 5);
-      console.log(hashtags);
       resultsToSend.hashtags = hashtags;
 
       // Extract sentiment

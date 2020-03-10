@@ -34,9 +34,27 @@ function buildResults(data) {
   })
 }
 
+function fetchWithTimeout(url, options = {}, delay = 5000, onTimeout) {
+  const timer = new Promise((resolve) => {
+    setTimeout(resolve, delay, {
+      timeout: true,
+    });
+  });
+  return Promise.race([
+    fetch(url, options),
+    timer
+  ]).then((response) => {
+    if(response.timeout) {
+      onTimeout();
+    }
+    return response
+  })
+}
+
 export {
   hideResults,
   showResults,
   toggleLoading,
-  buildResults
+  buildResults,
+  fetchWithTimeout
 }

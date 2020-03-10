@@ -18,15 +18,15 @@
             <section>
               <div class="content">
                 <div class="options-bar">
-                    <div id="url-tab" class="option-tab" onclick="return Client.tabClickHandler()">URL</div>
-                    <div id="text-tab" class="option-tab active-tab" onclick="return Client.tabClickHandler()">Paste text</div>
+                    <div id="url-tab" class="option-tab active-tab" onclick="return Client.tabClickHandler()">URL</div>
+                    <div id="text-tab" class="option-tab" onclick="return Client.tabClickHandler()">Paste text</div>
                 </div>
-                  <form id="url-form" class="hidden" onsubmit="return Client.handleUrlSubmit(event)">
+                  <form id="url-form" class="" onsubmit="return Client.handleUrlSubmit(event)">
                       <span class="error-span" id="url-error"></span>
                       <input type="text" id="url-input" name="url-input" value="" placeholder="Enter URL" autofocus="autofocus" onblur="return Client.onUrlBlur()" onchange="return Client.onUrlChange()">
                       <input disabled type="submit" id="url-submit" name="url-submit" value="Analyse" onclick="return Client.handleUrlSubmit(event)" onsubmit="return Client.handleUrlSubmit(event)">
                 </form>
-                <form id="text-form" onsubmit="">
+                <form id="text-form" onsubmit="" class="hidden">
                     <span class="error-span" id="text-error"></span>
                     <input type="text" id="title-input" name="title-input" value="" placeholder="Enter article title" autofocus="autofocus" onblur="" onchange="" maxlength="100">
                     <textarea id="article-text" rows="4" cols="50" placeholder="Paste article here" maxlength="1000"></textarea>
