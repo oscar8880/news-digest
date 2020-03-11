@@ -1,4 +1,5 @@
 const dotenv = require('dotenv');
+dotenv.config({path:__dirname+'/../../.env'});
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -11,7 +12,7 @@ const aylien = require("aylien_textapi");
 */
 
 // Load environment variables
-dotenv.config({path:__dirname+'/../../.env'});
+
 
 // Create express server
 const app = express()
@@ -34,7 +35,7 @@ app.listen(port, function () {
 })
 
 
-
+// Credentials copied and pasted from site
 // API_ID="2e2222e3";
 // API_KEY="0406bba6fce9f93946aeb4eca5b9e454";
 
@@ -121,6 +122,7 @@ app.get('/text', function (req, res) {
 })
 
 app.get('/url', function (req, res) {
+  console.log('Request received at /url')
   const resultsToSend = {};
 
   textapi.summarize({
@@ -163,6 +165,7 @@ app.get('/url', function (req, res) {
       resultsToSend.subjectivity = response.results[2].result.subjectivity;
 
       // Send payload
+      console.log('Sending response')
       res.send(resultsToSend);
     } else {
       console.log(error);

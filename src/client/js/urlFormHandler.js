@@ -33,6 +33,7 @@ function handleUrlSubmit(event) {
     toggleLoading();
     showResults();
     document.getElementById('url-form').reset();
+    document.getElementById('url-submit').setAttribute('disabled', '');
   })
   .catch( ()=> {
     const textInput =  document.getElementById('url-form');

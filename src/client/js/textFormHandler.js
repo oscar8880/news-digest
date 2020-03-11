@@ -37,6 +37,7 @@ function handleTextSubmit(event) {
     toggleLoading();
     showResults();
     document.getElementById('text-form').reset();
+    document.getElementById('text-submit').setAttribute('disabled', '');
   })
   .catch( ()=> {
     const textInput =  document.getElementById('text-form');
