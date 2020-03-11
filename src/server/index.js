@@ -26,22 +26,25 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 
-console.log("ID is: " + process.env.API_ID);
-console.log("Key is: " + process.env.API_KEY);
+const port = process.env.PORT || 8081;
 
 // Start server
-app.listen(8081, function () {
-  console.log('Server listening on port 8081')
+app.listen(port, function () {
+  console.log('Server listening on port ' + port)
 })
+
 
 
 // API_ID="2e2222e3";
 // API_KEY="0406bba6fce9f93946aeb4eca5b9e454";
 
+console.log("ID is: " + process.env.API_ID);
+console.log("Key is: " + process.env.API_KEY);
+
 // Set aylien API credentials
 var textapi = new aylien({
-  application_id: "2e2222e3",
-  application_key: "0406bba6fce9f93946aeb4eca5b9e454"
+  application_id: process.env.API_ID,
+  application_key: process.env.API_KEY
 });
 
 /*

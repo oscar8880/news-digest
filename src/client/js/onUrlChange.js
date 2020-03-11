@@ -1,4 +1,4 @@
-import { checkUrl } from "..";
+import { checkUrl } from "./utilities";
 
 function onUrlChange() {
   const submitButton = document.getElementById('url-submit');

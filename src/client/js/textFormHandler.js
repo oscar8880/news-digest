@@ -1,10 +1,17 @@
-import { toggleLoading, showResults, buildResults } from './utilities'
+import { toggleLoading, showResults, buildResults, fetchWithTimeout, hideResults, displayErrorMessage } from './utilities'
 
 function handleTextSubmit(event) {
 
   // Prevent default submit behaviour
   event.preventDefault();
 
+  // Check for presence of error message and remove if there
+  const errorMessage = document.getElementById('error-message');
+  if(errorMessage !== null) {
+    errorMessage.parentElement.removeChild(errorMessage.parentElement.lastChild);
+  }
+
+  // Show loading wheel
   toggleLoading();
 
   // Get the title as typed in the text input
@@ -19,7 +26,7 @@ function handleTextSubmit(event) {
 
   // Fetch results from the express server
   console.log("::: Form Submitted :::")
-  fetch(`http://localhost:8081/text?title=${encodedTitle}&text=${encodedArticle}`)
+  fetchWithTimeout(`http://localhost:8081/text?title=${encodedTitle}&text=${encodedArticle}`, {}, 5000)
   .then(res => {
       return res.json()
   })
@@ -30,6 +37,12 @@ function handleTextSubmit(event) {
     toggleLoading();
     showResults();
     document.getElementById('text-form').reset();
+  })
+  .catch( ()=> {
+    const textInput =  document.getElementById('text-form');
+    displayErrorMessage("Server error. Please try again.", textInput);
+    toggleLoading();
+    hideResults();
   })
 }
 

@@ -1,4 +1,4 @@
-import { checkUrl } from "./checkUrl";
+import { checkUrl } from "./utilities";
 
 function onUrlBlur() {
   const textField = document.getElementById('url-input');

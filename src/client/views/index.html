@@ -28,9 +28,9 @@
                 </form>
                 <form id="text-form" onsubmit="" class="hidden">
                     <span class="error-span" id="text-error"></span>
-                    <input type="text" id="title-input" name="title-input" value="" placeholder="Enter article title" autofocus="autofocus" onblur="" onchange="" maxlength="100">
-                    <textarea id="article-text" rows="4" cols="50" placeholder="Paste article here" maxlength="1000"></textarea>
-                    <input type="submit" id="text-submit" name="text-submit" value="Analyse" onclick="return Client.handleTextSubmit(event)" onsubmit="return Client.handleTextSubmit(event)">
+                    <input type="text" id="title-input" name="title-input" value="" placeholder="Enter article title" autofocus="autofocus" onblur="" onchange="return Client.onTextChange(event)" maxlength="100">
+                    <textarea id="article-text" rows="4" cols="50" placeholder="Paste article here" onchange="return Client.onTextChange(event)" maxlength="1000"></textarea>
+                    <input disabled type="submit" id="text-submit" name="text-submit" value="Analyse" onclick="return Client.handleTextSubmit(event)" onsubmit="return Client.handleTextSubmit(event)">
               </form>
                 <div id="loading-spinner" class="lds-ring hidden"><div></div><div></div><div></div><div></div></div>
                 <div id="results-component" class="results-container hidden">
