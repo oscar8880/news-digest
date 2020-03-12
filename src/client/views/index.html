@@ -13,6 +13,7 @@
 
         <header>
             <h1>News Digest<span>.</span></h1>
+            <p>Get the gist of the story in seconds</p>
         </header>
         <main>
             <section>
@@ -23,7 +24,7 @@
                 </div>
                   <form id="url-form" class="" onsubmit="return Client.handleUrlSubmit(event)">
                       <span class="error-span" id="url-error"></span>
-                      <input type="text" id="url-input" name="url-input" value="" placeholder="Enter URL" autofocus="autofocus" onblur="return Client.onUrlBlur()" onchange="return Client.onUrlChange()">
+                      <input type="text" id="url-input" name="url-input" value="" placeholder="Enter article URL" autofocus="autofocus" onblur="return Client.onUrlBlur()" onchange="return Client.onUrlChange()">
                       <input disabled type="submit" id="url-submit" name="url-submit" value="Analyse" onclick="return Client.handleUrlSubmit(event)" onsubmit="return Client.handleUrlSubmit(event)">
                 </form>
                 <form id="text-form" onsubmit="" class="hidden">
