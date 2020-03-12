@@ -53,3 +53,18 @@ table {
 ul {
     list-style-type: none;
 }
+
+/*
+  PREVENT iOS styling inputs
+*/
+
+textarea,
+input.text,
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+.input-checkbox {
+-webkit-appearance: none;
+font-family: 'Work Sans', sans-serif;
+border-radius: 0;
+}
