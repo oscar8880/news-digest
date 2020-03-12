@@ -5,7 +5,7 @@ import { onTextChange,
   handleTextSubmit,
   handleUrlSubmit } from './js/eventHandlers';
 import './styles/main.scss';
-import '../../favicon.ico';
+import img from '../../favicon.ico';
 
 export {
   handleTextSubmit,
