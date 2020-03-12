@@ -33,15 +33,15 @@ function buildResults(data) {
   const summary = document.querySelector("#summary-data");
   const hashtagList = document.querySelector("#hashtag-list");
 
-  classification.innerText = data.classification;
-  polarity.innerText = `Polarity: ${data.polarity}`;
-  subjectivity.innerText = `Subjectivity: ${data.subjectivity}`;
-  summary.innerText = data.summary;
+  classification.textContent = data.classification;
+  polarity.textContent = `Polarity: ${data.polarity}`;
+  subjectivity.textContent = `Subjectivity: ${data.subjectivity}`;
+  summary.textContent = data.summary;
 
   hashtagList.innerHTML = '';
   data.hashtags.forEach(hashtag => {
     const listItem = document.createElement('li');
-    listItem.innerText = hashtag;
+    listItem.textContent = hashtag;
     hashtagList.appendChild(listItem);
   })
 }
@@ -66,7 +66,7 @@ function fetchWithTimeout(url, options = {}, delay = 5000) {
 function displayErrorMessage(message, parentElement) {
   const errorText = document.createElement('p');
   errorText.classList.add('error');
-  errorText.innerText = message;
+  errorText.textContent = message;
   errorText.setAttribute('id', 'error-message');
   parentElement.appendChild(errorText);
 }

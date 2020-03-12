@@ -31,30 +31,30 @@
                     <input type="text" id="title-input" name="title-input" value="" placeholder="Enter article title" autofocus="autofocus" onblur="" onchange="return Client.onTextChange(event)" maxlength="100">
                     <textarea id="article-text" rows="4" cols="50" placeholder="Paste article here" onchange="return Client.onTextChange(event)" maxlength="1000"></textarea>
                     <input disabled type="submit" id="text-submit" name="text-submit" value="Analyse" onclick="return Client.handleTextSubmit(event)" onsubmit="return Client.handleTextSubmit(event)">
-              </form>
+                </form>
                 <div id="loading-spinner" class="lds-ring hidden"><div></div><div></div><div></div><div></div></div>
                 <div id="results-component" class="results-container hidden">
-                    <div class="results-title">
-                        <h2>Results</h2>
-                    </div>
-                    <div class="results-item">
-                        <h3 class="results-subtitle">Summary</h3>
-                        <p id="summary-data"></p>
-                    </div>
-                    <div class="results-item">
-                      <h3 class="results-subtitle">Category</h3>
-                      <p id="classification-data"></p>
-                    </div>
-                    <div class="results-item">
-                      <h3 class="results-subtitle">Sentiment</h3>
-                      <p id="polarity-data"></p>
-                      <p id="subjectivity-data"></p>
-                    </div>
-                    <div class="results-item">
-                      <h3 class="results-subtitle">Hashtags</h3>
-                      <ul id="hashtag-list">
-                      </ul>
-                    </div>
+                  <div class="results-title">
+                      <h2>Results</h2>
+                  </div>
+                  <div class="results-item">
+                      <h3 class="results-subtitle">Summary</h3>
+                      <p id="summary-data"></p>
+                  </div>
+                  <div class="results-item">
+                    <h3 class="results-subtitle">Category</h3>
+                    <p id="classification-data"></p>
+                  </div>
+                  <div class="results-item">
+                    <h3 class="results-subtitle">Sentiment</h3>
+                    <p id="polarity-data"></p>
+                    <p id="subjectivity-data"></p>
+                  </div>
+                  <div class="results-item">
+                    <h3 class="results-subtitle">Hashtags</h3>
+                    <ul id="hashtag-list">
+                    </ul>
+                  </div>
                 </div>
               </div>
             <section>

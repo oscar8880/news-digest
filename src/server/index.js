@@ -27,21 +27,6 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 
-const port = process.env.PORT || 8081;
-
-// Start server
-app.listen(port, function () {
-  console.log('Server listening on port ' + port)
-})
-
-
-// Credentials copied and pasted from site
-// API_ID="2e2222e3";
-// API_KEY="0406bba6fce9f93946aeb4eca5b9e454";
-
-console.log("ID is: " + process.env.API_ID);
-console.log("Key is: " + process.env.API_KEY);
-
 // Set aylien API credentials
 var textapi = new aylien({
   application_id: process.env.API_ID,
@@ -172,4 +157,6 @@ app.get('/url', function (req, res) {
     }
     })
 })
+
+module.exports = app;
 
