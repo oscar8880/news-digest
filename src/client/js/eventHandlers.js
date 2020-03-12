@@ -89,7 +89,7 @@ function handleTextSubmit(event) {
 
   // Fetch results from the express server
   console.log("::: Form Submitted :::")
-  fetchWithTimeout(`http://localhost:8081/text?title=${encodedTitle}&text=${encodedArticle}`, {}, 5000)
+  fetchWithTimeout(`http://localhost:8081/text?title=${encodedTitle}&text=${encodedArticle}`, {}, 10000)
   .then(res => {
       return res.json()
   })
@@ -132,7 +132,7 @@ function handleUrlSubmit(event) {
 
   // Fetch results from the express server
   console.log("::: Form Submitted :::")
-  fetchWithTimeout(`http://localhost:8081/url?url=${encodedURL}`, {}, 5000)
+  fetchWithTimeout(`http://localhost:8081/url?url=${encodedURL}`, {}, 10000)
   .then(res => {
       return res.json()
   })

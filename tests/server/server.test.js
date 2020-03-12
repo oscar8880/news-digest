@@ -44,5 +44,5 @@ describe("Get request at /text", ()=> {
 
     expect(res.status).toBe(200);
     done();
-  });  
+  });
 })
