@@ -18,8 +18,8 @@
             <section>
               <div class="content">
                 <div class="options-bar">
-                    <div id="url-tab" class="option-tab active-tab" onclick="return Client.tabClickHandler()">URL</div>
-                    <div id="text-tab" class="option-tab" onclick="return Client.tabClickHandler()">Paste text</div>
+                    <div id="url-tab" class="option-tab active-tab" onclick="return Client.tabClickHandler(event)">URL</div>
+                    <div id="text-tab" class="option-tab" onclick="return Client.tabClickHandler(event)">Paste text</div>
                 </div>
                   <form id="url-form" class="" onsubmit="return Client.handleUrlSubmit(event)">
                       <span class="error-span" id="url-error"></span>

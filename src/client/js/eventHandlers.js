@@ -48,11 +48,17 @@ function onUrlChange() {
   }
 }
 
-function tabClickHandler() {
+function tabClickHandler(event) {
   const urlTab = document.getElementById('url-tab');
   const textTab = document.getElementById('text-tab');
   const urlForm = document.getElementById('url-form');
   const textForm = document.getElementById('text-form');
+
+  // If clicked tab is active, click does nothing
+  const clickedTab = event.target;
+  if(clickedTab.classList.contains('active-tab')) {
+    return;
+  }
 
   urlTab.classList.toggle('active-tab');
   textTab.classList.toggle('active-tab');
