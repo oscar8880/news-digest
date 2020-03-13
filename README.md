@@ -1,9 +1,11 @@
 # News Digest
 ### A Natural Language Processing Project
 
-For this project I made a web app which uses the Aylien Natural Language Processing API to provide summary information about news articles.
+For this project I created a web app which uses the Aylien Natural Language Processing API to provide summary information about news articles.
 
-The key learning points here were:
+Go to https://news-digest.netlify.com/ to view the app.
+
+The key learning points were:
 * Using Webpack to create development and production environments for the app
 * Using SASS for clearer, simpler styling
 * Using service workers to ensure the site isn't affected by temporary server disconnects
