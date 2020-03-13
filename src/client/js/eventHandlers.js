@@ -1,4 +1,5 @@
 import { checkUrl, toggleLoading, showResults, buildResults, fetchWithTimeout, hideResults, displayErrorMessage } from './utilities'
+import { baseUrl } from '../index';
 
 function onTextChange() {
   const articleTitle = document.getElementById('title-input');
@@ -95,7 +96,7 @@ function handleTextSubmit(event) {
 
   // Fetch results from the express server
   console.log("::: Form Submitted :::")
-  fetchWithTimeout(`https://news-digest-express.herokuapp.com/text?title=${encodedTitle}&text=${encodedArticle}`, {}, 10000)
+  fetchWithTimeout(`${baseUrl}text?title=${encodedTitle}&text=${encodedArticle}`, {}, 10000)
   .then(res => {
       return res.json()
   })
@@ -138,7 +139,7 @@ function handleUrlSubmit(event) {
 
   // Fetch results from the express server
   console.log("::: Form Submitted :::")
-  fetchWithTimeout(`https://news-digest-express.herokuapp.com/url?url=${encodedURL}`, {}, 10000)
+  fetchWithTimeout(`${baseUrl}url?url=${encodedURL}`, {}, 10000)
   .then(res => {
       return res.json()
   })

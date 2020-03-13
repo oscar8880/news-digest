@@ -5,7 +5,7 @@ import {
   tabClickHandler,
 } from '../../src/client/js/eventHandlers';
 
-// hideResults
+// onTextChange
 describe("Determines if submit button should be enabled", ()=> {
   test("Should add disabled attribute to submit button if text boxes have no text", ()=> {
     document.body.innerHTML = `
