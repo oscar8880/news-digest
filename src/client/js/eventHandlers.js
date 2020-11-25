@@ -8,12 +8,12 @@ function onTextChange() {
   const textValue = articleText.value;
 
   const submitButton = document.getElementById('text-submit');
-  
-    if(titleValue === "" || textValue === "") {
-      submitButton.setAttribute('disabled', '');
-    } else {
-      submitButton.removeAttribute('disabled');
-    }
+
+  if(titleValue.length > 0 && textValue.length > 0) {
+    submitButton.removeAttribute('disabled');
+  } else {
+    submitButton.setAttribute('disabled', '')
+  }
 }
 
 function onUrlBlur() {
@@ -42,6 +42,12 @@ function onUrlChange() {
   const textField = document.getElementById('url-input');
   const inputtedText = textField.value;
   const errorSpan = document.getElementById('url-error');
+
+  if(inputtedText.length > 0) {
+    submitButton.removeAttribute('disabled');
+  } else {
+    submitButton.setAttribute('disabled', '')
+  }
 
   if(checkUrl(inputtedText)) {
     submitButton.removeAttribute('disabled');
