@@ -24,13 +24,13 @@
                 </div>
                   <form id="url-form" class="" onsubmit="return Client.handleUrlSubmit(event)">
                       <span class="error-span" id="url-error"></span>
-                      <input type="text" id="url-input" name="url-input" value="" placeholder="Enter article URL" autofocus="autofocus" onblur="return Client.onUrlBlur()" onkeyup="return Client.onUrlChange()">
+                      <input type="text" id="url-input" name="url-input" value="" placeholder="Enter article URL" autofocus="autofocus" onblur="return Client.onUrlBlur()" ontouchend="return Client.onUrlChange()" onkeyup="return Client.onUrlChange()">
                       <input disabled type="submit" id="url-submit" name="url-submit" value="Analyse" onclick="return Client.handleUrlSubmit(event)" onsubmit="return Client.handleUrlSubmit(event)">
                 </form>
                 <form id="text-form" onsubmit="" class="hidden">
                     <span class="error-span" id="text-error"></span>
-                    <input type="text" id="title-input" name="title-input" value="" placeholder="Enter article title" autofocus="autofocus" onblur="" onkeyup="return Client.onTextChange(event)" maxlength="100">
-                    <textarea id="article-text" rows="4" cols="50" placeholder="Paste article here" onkeyup="return Client.onTextChange(event)" maxlength="1000"></textarea>
+                    <input type="text" id="title-input" name="title-input" value="" placeholder="Enter article title" autofocus="autofocus" onblur="" ontouchend="return Client.onTextChange(event)" onkeyup="return Client.onTextChange(event)" maxlength="100">
+                    <textarea id="article-text" rows="4" cols="50" placeholder="Paste article here" onkeyup="return Client.onTextChange(event)" onkeyup="return Client.onTextChange(event)" maxlength="1000"></textarea>
                     <input disabled type="submit" id="text-submit" name="text-submit" value="Analyse" onclick="return Client.handleTextSubmit(event)" onsubmit="return Client.handleTextSubmit(event)">
                 </form>
                 <div id="loading-spinner" class="lds-ring hidden"><div></div><div></div><div></div><div></div></div>
