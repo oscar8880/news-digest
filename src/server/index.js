@@ -43,17 +43,9 @@ app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
 })
 
-/* ------ TEST API CALL ------ */
-// textapi.sentiment({
-//   'text': 'John is a very good football player!'
-// }, function(error, response, rateLimits) {
-//   console.log(rateLimits);
-//   if (error === null) {
-//     console.log(response);
-//   } else {
-//     console.log(error);
-//   }
-// });
+app.get('/wakeup', function () {
+  console.log('Received wake up call');
+})
 
 app.get('/text', function (req, res) {
   const resultsToSend = {};

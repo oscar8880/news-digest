@@ -160,11 +160,18 @@ function handleUrlSubmit(event) {
   })
 }
 
+function wakeUp() {
+  fetch(`${baseUrl}wakeup`)
+  .then(()=>console.log('Woke up server'))
+  .catch((error)=>console.log(error));
+}
+
 export {
   onTextChange, 
   onUrlBlur,
   onUrlChange,
   tabClickHandler,
   handleTextSubmit,
-  handleUrlSubmit
+  handleUrlSubmit,
+  wakeUp
 }

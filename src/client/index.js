@@ -3,7 +3,8 @@ import { onTextChange,
   onUrlChange,
   tabClickHandler,
   handleTextSubmit,
-  handleUrlSubmit } from './js/eventHandlers';
+  handleUrlSubmit,
+ wakeUp } from './js/eventHandlers';
 import './styles/main.scss';
 import '../../favicon.ico';
 
@@ -20,5 +21,6 @@ export {
   onTextChange,
   onUrlBlur,
   onUrlChange,
-  tabClickHandler
+  tabClickHandler,
+  wakeUp
 }
