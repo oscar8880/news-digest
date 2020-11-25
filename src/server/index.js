@@ -43,7 +43,9 @@ app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
 })
 
-app.get('/wakeup', function () {
+app.get('/wakeup', function (req, res) {
+  const status = 200;
+  res.status(status).json({ status });
   console.log('Received wake up call');
 })
 
